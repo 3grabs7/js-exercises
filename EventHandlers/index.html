@@ -1,45 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
     <title>Events osv</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="nav">
-        <div>
-            <h3>Exercise 1</h3>
-            <h1>Event Handling</h1>
-        </div>
-        <div>
-            <label for="facit-toggle">Facit</label>
-            <button class="button facit-toggle">Toggle</button>
-        </div>
+      <div>
+        <h3>JavaScript Exercises</h3>
+        <h1>Event Handling</h1>
+      </div>
+      <div>
+        <label for="facitToggle">Facit</label>
+        <button
+          class="button facit-toggle"
+          onclick="toggleFacit()"
+          id="facitToggle"
+        ></button>
+      </div>
     </div>
     <div class="main-container">
-        <!-- EXERCISE 1 -->
-        <div class="ex-container">
-            <div class="ex-header">Exercise 1</div>
-            <div class="ex-desc">Här ska vi göra massa sjuka saker</div>
-            <div class="ex-main">Här finns grejerna som ska interageras med</div>
-            <div class="ex-footer">
-                <button class="button">HELP</button>
-            </div>
+      <!-- EXERCISE 1 -->
+      <div class="ex-container">
+        <div class="ex-header"><h1>Exercise 1</h1></div>
+        <div class="ex-desc">
+          <p>
+            Hantera event för button så browsern gör en alert med värdet i input
+            som message
+          </p>
         </div>
-        <!-- EXERCISE 2 -->
-        <div class="ex-container">
-            <div class="ex-header">Exercise 1</div>
-            <div class="ex-desc">Här ska vi göra massa sjuka saker</div>
-            <div class="ex-main">Här finns grejerna som ska interageras med</div>
-            <div class="ex-footer">
-                <button class="button">HELP</button>
-            </div>
+        <div class="ex-main">
+          <div>
+            <label for="ex1-input">Input</label>
+            <input type="text" placeholder="Skriv nått sjukt" id="ex1-input" />
+            <button class="button" id="ex1-button">Go</button>
+          </div>
         </div>
-        <div class="ex-container"></div>
-        <div class="ex-container"></div>
-        <div class="ex-container"></div>
+      </div>
+      <!-- EXERCISE 2 -->
+      <div class="ex-container">
+        <div class="ex-header"><h1>Exercise 2</h1></div>
+        <div class="ex-desc">
+          <p>
+            Hantera event för inputs och buttons så att browsern först gör en
+            prompt med värdet i Question som message när Go klickas och sedan
+            sätter användarens svar i Answer. Gör även så clear nollställer både
+            Question och Answer.
+            <br />
+            Lägg till en alert om validering ifall frågan ej innehåller ett och
+            endast ett frågetecken placerat på slutet.
+          </p>
+        </div>
+        <div class="ex-main">
+          <div>
+            <label for="ex2-input1">Question</label>
+            <input type="text" placeholder="Skriv nått sjukt" id="ex2-input1" />
+            <label for="ex2-input2">Answer</label>
+            <input type="text" disabled id="ex2-input2" />
+            <div class="button-group">
+              <button class="button" id="ex2-button1">Go</button>
+              <button class="button" id="ex2-button2">Clear</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ex-container"></div>
+      <div class="ex-container"></div>
+      <div class="ex-container"></div>
     </div>
-</body>
+  </body>
+  <script src="./toggleFacit.js"></script>
 </html>
+
+<!--
+    validering
+    frys input
+    felaktigt tecken växer -> täcker skärmen -> exploderar
+    text visas -> felaktigt tecken
+-->
