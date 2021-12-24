@@ -31,3 +31,15 @@ function inputIsValidated(input) {
 }
 
 // Exercise 3
+const exThreeInputElement = document.querySelector('#ex3-input');
+exThreeInputElement.addEventListener('keydown', (e) => {
+  if (!e.key.match(/[01]/)) {
+    e.preventDefault();
+  }
+});
+exThreeInputElement.addEventListener('keyup', () => {
+  if (exThreeInputElement.value.length === 5) {
+    alert('Vi är färdiga där');
+    exThreeInputElement.setAttribute('disabled', true);
+  }
+});
