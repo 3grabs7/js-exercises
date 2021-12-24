@@ -83,7 +83,54 @@
         <div class="ex-main">
           <div>
             <label for="ex3-input">Validate me</label>
-            <input type="text" placeholder="Skriv nått sjukt" id="ex3-input" />
+            <input type="text" placeholder="Endast binärt" id="ex3-input" />
+          </div>
+        </div>
+      </div>
+      <!-- EXERCISE 4 -->
+      <div class="ex-container">
+        <div class="ex-header"><h1>Exercise 4</h1></div>
+        <div class="ex-desc">
+          <p>
+            Hantera event så resultatet av operand 1 och operand 2 skrivs ut i
+            result när en av button med operatorer hovras.
+            <br />
+            När vi slutar hovra skall result nollställas.
+            <br />
+            <br />
+            I operanderna tillåts endast siffror och leading zeroes skall
+            undvikas.
+            <br />
+            (Igen, kom ihåg att backspace måste fungera som vanligt)
+            <br />
+            Säkra även inputs så att vi ej kan hacka oss till att ha endast
+            nollor kvar.
+            <br />
+            ex. om vi skriver 6700 och tar bort 67 ska vi ej ha 00 kvar.
+          </p>
+        </div>
+        <div class="ex-main">
+          <div>
+            <label for="ex4-input1">Operand 1</label>
+            <input type="text" placeholder="Operand 1" id="ex4-input1" />
+            <div>
+              <button class="button btn-operator" id="ex4-button1" op="+">
+                ➕
+              </button>
+              <button class="button btn-operator" id="ex4-button2" op="-">
+                ➖
+              </button>
+              <button class="button btn-operator" id="ex4-button3" op="*">
+                ✖
+              </button>
+              <button class="button btn-operator" id="ex4-button4" op="/">
+                ➗
+              </button>
+            </div>
+            <label for="ex4-input2">Operand 2</label>
+            <input type="text" placeholder="Operand 2" id="ex4-input2" />
+            <label for="ex4-input3">Result</label>
+            <input type="text" placeholder="Result" id="ex4-input3" />
           </div>
         </div>
       </div>
