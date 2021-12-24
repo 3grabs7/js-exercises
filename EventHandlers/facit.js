@@ -33,7 +33,7 @@ function inputIsValidated(input) {
 // Exercise 3
 const exThreeInputElement = document.querySelector('#ex3-input');
 exThreeInputElement.addEventListener('keydown', (e) => {
-  if (!e.key.match(/[01]/)) {
+  if (!e.key.match(/[01]|Backspace|Arrow\w+/)) {
     e.preventDefault();
   }
 });
