@@ -13,11 +13,21 @@ const exTwoButtonOneElement = document.querySelector('#ex2-button1');
 const exTwoButtonTwoElement = document.querySelector('#ex2-button2');
 
 exTwoButtonOneElement.addEventListener('click', () => {
-  const output = prompt(exTwoInputOneElement.value);
-  exTwoInputTwoElement.value = output;
+  if (inputIsValidated(exTwoInputOneElement.value)) {
+    const output = prompt(exTwoInputOneElement.value);
+    exTwoInputTwoElement.value = output;
+    return;
+  }
+  alert('That was not a valid question.');
 });
 
 exTwoButtonTwoElement.addEventListener('click', () => {
   exTwoInputOneElement.value = '';
   exTwoInputTwoElement.value = '';
 });
+
+function inputIsValidated(input) {
+  return input.match(/^[^?]*[?]$/);
+}
+
+// Exercise 3
