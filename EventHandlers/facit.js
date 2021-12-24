@@ -43,3 +43,49 @@ exThreeInputElement.addEventListener('keyup', () => {
     exThreeInputElement.setAttribute('disabled', true);
   }
 });
+
+// Exercise 4
+const exFourInputOpOneElement = document.querySelector('#ex4-input1');
+const exFourInputOpTwoElement = document.querySelector('#ex4-input2');
+const exFourInputResultElement = document.querySelector('#ex4-input3');
+const exFourButtonOperatorsCollection =
+  document.querySelectorAll('.btn-operator');
+
+[exFourInputOpOneElement, exFourInputOpTwoElement].forEach((op) => {
+  op.addEventListener('keydown', (e) => {
+    console.log(e.key);
+    if (
+      !e.key.match(/[0-9]|Backspace|Arrow\w+/) ||
+      (op.value.length === 0 && e.key === '0')
+    ) {
+      e.preventDefault();
+    }
+  });
+  op.addEventListener('keyup', () => {
+    op.value = op.value.replace(/^[0]*/g, '');
+  });
+});
+
+exFourButtonOperatorsCollection.forEach((btnOperator) => {
+  btnOperator.addEventListener('mouseenter', (e) => {
+    exFourInputResultElement.value = calculator[e.target.getAttribute('op')]();
+  });
+  btnOperator.addEventListener('mouseleave', () => {
+    exFourInputResultElement.value = '';
+  });
+});
+
+const calculator = {
+  '+': () =>
+    parseInt(exFourInputOpOneElement.value) +
+    parseInt(exFourInputOpTwoElement.value),
+  '-': () =>
+    parseInt(exFourInputOpOneElement.value) -
+    parseInt(exFourInputOpTwoElement.value),
+  '*': () =>
+    parseInt(exFourInputOpOneElement.value) *
+    parseInt(exFourInputOpTwoElement.value),
+  '/': () =>
+    parseInt(exFourInputOpOneElement.value) /
+    parseInt(exFourInputOpTwoElement.value),
+};
