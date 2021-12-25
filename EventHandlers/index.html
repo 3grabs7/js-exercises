@@ -63,26 +63,28 @@
         <div class="ex-header"><h1>Exercise 2</h1></div>
         <div class="ex-desc">
           <p>
-            Hantera event för inputs och buttons så att browsern först gör en
-            prompt med värdet i Question som message när Go klickas och sedan
-            sätter användarens svar i Answer. Gör även så clear nollställer både
-            Question och Answer.
+            Hantera event för Go-button så att browsern gör en prompt med värdet
+            i Question-input när användaren trycker på knappen. Sedan ska svaret
+            från prompt skrivas ut i Answer-input.
+            <br />
+            Hantera även event för Clear-button så båda värden i
+            Question/Answer-inputs nollställs när användaren klickar på knappen.
             <br />
             <br />
-            Lägg till en alert om validering ifall frågan ej innehåller ett och
-            endast ett frågetecken placerat på slutet.
+            Lägg till en alert om frågan ej innehåller ett och endast ett
+            frågetecken placerat på slutet.
           </p>
           <div class="ex-desc-links">
             <h3>Hjälplänkar</h3>
             <a
               target="_blank"
-              href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match"
-              >Regex Match</a
+              href="https://www.w3schools.com/jsref/met_win_prompt.asp"
+              >Prompt</a
             >
             <a
               target="_blank"
-              href="https://www.w3schools.com/jsref/met_win_prompt.asp"
-              >Prompt</a
+              href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match"
+              >Regex Match</a
             >
           </div>
         </div>
@@ -104,26 +106,29 @@
         <div class="ex-header"><h1>Exercise 3</h1></div>
         <div class="ex-desc">
           <p>
-            Hantera event för input så att endast '1' och '0' tillåts att
-            skrivas in. <br />
-            Om något annat tecken används skall inputen ej skriva ut detta.
+            Hantera event för input så att det endast går att skriva in '1' och
+            '0'.
             <br />
-            (Kom ihåg att backspace måste fungera som vanligt)
+            (Kom ihåg att backspace och arrow keys måste fungera som vanligt)
             <br />
             <br />
-            När input value är 5 tecken långt ska broswern alerta att vi är
-            klara. När användaren har klickat ok ska input disablas.
+            När input value är 5 tecken långt ska browsern göra en alert och
+            säga att vi är klara. När användaren har klickat "Ok" ska input bli
+            disabled.
+            <br />
+            <br />
+            <span style="color: red">OBS</span> att det ska vara 5 tecken i
+            input INNAN browsern gör sin alert.
           </p>
           <div class="ex-desc-links">
             <h3>Hjälplänkar</h3>
+            <a target="_blank" href="https://javascript.info/keyboard-events"
+              >Keyboard Events</a
+            >
             <a
               target="_blank"
               href="https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute"
               >Set Attribute</a
-            >
-
-            <a target="_blank" href="https://javascript.info/keyboard-events"
-              >Keyboard Events</a
             >
           </div>
         </div>
@@ -143,13 +148,14 @@
             result när en button med operator hovras. När vi slutar hovra skall
             result nollställas.
             <br />
-            (Använd gärna custom attributes på html-elementen)
+            (Använd gärna de custom attributes som jag lagt till i html)
             <br />
             <br />
             I operanderna tillåts endast siffror och leading zeroes skall
             undvikas.
             <br />
-            (Igen, kom ihåg att backspace måste fungera som vanligt)
+            (Igen, kom ihåg att backspace och arrow keys måste fungera som
+            vanligt)
             <br />
             Säkra även inputs så att vi ej kan hacka oss till att ha endast
             nollor kvar.
@@ -195,8 +201,8 @@
         <div class="ex-header"><h1>Exercise 5</h1></div>
         <div class="ex-desc">
           <p>
-            Hantera events för +/- buttons så de lägger till/tar bort en rad av
-            Inputs.
+            Hantera events för +/- buttons så att de lägger till/tar bort en
+            rad.
             <br />
             Raden ska bestå av en numrerad label och en text-input. Minst en
             input måste alltid finnas kvar.
