@@ -141,11 +141,42 @@
       <div class="ex-container">
         <div class="ex-header"><h1>Exercise 5</h1></div>
         <div class="ex-desc">
-          <p>Beskrivning</p>
+          <p>
+            Hantera events för +/- buttons så de lägger till/tar bort en rad av
+            Inputs.
+            <br />
+            Raden ska bestå av en numrerad label och en text-input. Minst en
+            input måste alltid finnas kvar.
+            <br /><br />
+            När en input uppdateras skall alla andra inputs få samma värde.
+          </p>
+          <div class="ex-desc-links">
+            <h3>Hjälplänkar</h3>
+            <a
+              target="_blank"
+              href="https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelectorAll"
+              >Query selector</a
+            >
+            <a
+              target="_blank"
+              href="https://www.geeksforgeeks.org/wildcard-selectors-and-in-css-for-classes/"
+              >Wildcard selectors</a
+            >
+          </div>
         </div>
         <div class="ex-main">
           <div>
-            <p>Övningsyta</p>
+            <h3>Inputs</h3>
+            <div class="button-group">
+              <button class="button" id="ex5-button1">➕</button>
+              <button class="button" id="ex5-button2">➖</button>
+            </div>
+            <div class="input-wrapper" id="ex5-input-wrapper">
+              <div>
+                <label for="ex5-input1">Input 1</label>
+                <input type="text" id="ex5-input1" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
