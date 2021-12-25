@@ -1,4 +1,6 @@
-// Exercise 1
+/****************\
+  ** Exercise 1 **
+ \****************/
 const exOneInputElement = document.querySelector('#ex1-input');
 const exOneButtonElement = document.querySelector('#ex1-button');
 
@@ -6,7 +8,9 @@ exOneButtonElement.addEventListener('click', () => {
   alert(exOneInputElement.value);
 });
 
-// Exercise 2
+/****************\
+  ** Exercise 2 **
+ \****************/
 const exTwoInputOneElement = document.querySelector('#ex2-input1');
 const exTwoInputTwoElement = document.querySelector('#ex2-input2');
 const exTwoButtonOneElement = document.querySelector('#ex2-button1');
@@ -27,12 +31,23 @@ exTwoButtonTwoElement.addEventListener('click', () => {
 });
 
 function inputIsValidated(input) {
+  /*
+    Regex säger att matcha endast tecken som inte är '?' från start och oändligt många gånger framåt.
+    Sen matchar vi endast om sista tecknet är '?'
+  */
   return input.match(/^[^?]*[?]$/);
 }
 
-// Exercise 3
+/****************\
+  ** Exercise 3 **
+ \****************/
 const exThreeInputElement = document.querySelector('#ex3-input');
 exThreeInputElement.addEventListener('keydown', (e) => {
+  /*
+    Regex säger att vi matchar endast 1 och noll 
+    ELLER Backspace
+    ELLER ord som börjar på Arrow följt av vilka tecken som helst
+  */
   if (!e.key.match(/[01]|Backspace|Arrow\w+/)) {
     e.preventDefault();
   }
@@ -44,7 +59,9 @@ exThreeInputElement.addEventListener('keyup', () => {
   }
 });
 
-// Exercise 4
+/****************\
+  ** Exercise 4 **
+ \****************/
 const exFourInputOpOneElement = document.querySelector('#ex4-input1');
 const exFourInputOpTwoElement = document.querySelector('#ex4-input2');
 const exFourInputResultElement = document.querySelector('#ex4-input3');
@@ -53,8 +70,10 @@ const exFourButtonOperatorsCollection =
 
 [exFourInputOpOneElement, exFourInputOpTwoElement].forEach((op) => {
   op.addEventListener('keydown', (e) => {
-    console.log(e.key);
     if (
+      /*
+        Regex säger samma som övning innan men vi matchar 0 till 9 istället
+      */
       !e.key.match(/[0-9]|Backspace|Arrow\w+/) ||
       (op.value.length === 0 && e.key === '0')
     ) {
@@ -62,6 +81,9 @@ const exFourButtonOperatorsCollection =
     }
   });
   op.addEventListener('keyup', () => {
+    /*
+      Regex säger vi matchar 0 från start och oändligt många i följd
+    */
     op.value = op.value.replace(/^[0]*/g, '');
   });
 });
