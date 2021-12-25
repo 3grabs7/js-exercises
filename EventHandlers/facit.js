@@ -89,3 +89,55 @@ const calculator = {
     parseInt(exFourInputOpOneElement.value) /
     parseInt(exFourInputOpTwoElement.value),
 };
+
+/****************\
+  ** Exercise 5 **
+ \****************/
+exFiveButtonPlusElement = document.querySelector('#ex5-button1');
+exFiveButtonMinusElement = document.querySelector('#ex5-button2');
+exFiveInputWrapperElement = document.querySelector('#ex5-input-wrapper');
+
+exFiveButtonPlusElement.addEventListener('click', addInput);
+exFiveButtonMinusElement.addEventListener('click', removeInput);
+
+// Update all inputs when one change
+getInputCollection().forEach((ele) => {
+  ele.addEventListener('input', (event) => {
+    getCollectionOfInputs().forEach((nestEle) => {
+      nestEle.value = event.target.value;
+    });
+  });
+});
+
+function addInput() {
+  const currentInputsCount = getInputCollection().length + 1;
+
+  const wrapper = document.createElement('div');
+
+  const label = document.createElement('label');
+  label.innerHTML = `Input ${currentInputsCount}`;
+  label.setAttribute('for', `ex5-input${currentInputsCount}`);
+
+  const input = document.createElement('input');
+  input.type = 'text';
+  input.id = `ex5-input${currentInputsCount}`;
+  input.addEventListener('input', (event) => {
+    getInputCollection().forEach((nestEle) => {
+      nestEle.value = event.target.value;
+    });
+  });
+
+  wrapper.appendChild(input);
+  wrapper.insertBefore(label, input);
+
+  exFiveInputWrapperElement.appendChild(wrapper);
+}
+
+function removeInput() {
+  if (getInputCollection().length <= 1) return;
+  exFiveInputWrapperElement.removeChild(exFiveInputWrapperElement.lastChild);
+}
+
+function getInputCollection() {
+  return document.querySelectorAll('input[id^="ex5-input"');
+}
