@@ -163,3 +163,30 @@ function removeInput() {
 function getInputCollection() {
   return document.querySelectorAll('input[id^="ex5-input"');
 }
+
+/****************\
+  ** Exercise 6 **
+ \****************/
+const exSixSelectElement = document.querySelector('#ex6-select');
+const exSixBoxElement = document.querySelector('#ex6-box');
+const exSixCheckboxElement = document.querySelector('#ex6-box-rot');
+
+let interval;
+let rotation = 0;
+
+exSixSelectElement.addEventListener('change', (e) => {
+  console.log('change osv');
+  exSixBoxElement.style.backgroundColor = e.target.value;
+});
+
+exSixCheckboxElement.addEventListener('input', (e) => {
+  if (!e.target.checked) {
+    clearInterval(interval);
+    return;
+  }
+
+  interval = setInterval(() => {
+    rotation++;
+    exSixBoxElement.style.transform = `rotate(${rotation}deg)`;
+  }, 50);
+});
