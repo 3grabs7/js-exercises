@@ -166,3 +166,11 @@ body {
 p {
   font-size: 15px;
 }
+
+label[for^='ex5-input'] {
+  margin-right: 0.2rem;
+}
+
+input[id^='ex5-input'] {
+  margin-left: 0.2rem;
+}
