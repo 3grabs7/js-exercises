@@ -31,6 +31,24 @@
             Hantera event för button så browsern gör en alert med värdet i input
             som message.
           </p>
+          <div class="ex-desc-links">
+            <h3>Hjälplänkar</h3>
+            <a
+              target="_blank"
+              href="https://www.w3schools.com/js/js_htmldom_eventlistener.asp"
+              >Event Listeners</a
+            >
+            <a
+              target="_blank"
+              href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector"
+              >Query selector</a
+            >
+            <a
+              target="_blank"
+              href="https://www.w3schools.com/jsref/met_win_alert.asp"
+              >Alert</a
+            >
+          </div>
         </div>
         <div class="ex-main">
           <div>
@@ -49,10 +67,24 @@
             prompt med värdet i Question som message när Go klickas och sedan
             sätter användarens svar i Answer. Gör även så clear nollställer både
             Question och Answer.
-            <br /><br />
+            <br />
+            <br />
             Lägg till en alert om validering ifall frågan ej innehåller ett och
             endast ett frågetecken placerat på slutet.
           </p>
+          <div class="ex-desc-links">
+            <h3>Hjälplänkar</h3>
+            <a
+              target="_blank"
+              href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match"
+              >Regex Match</a
+            >
+            <a
+              target="_blank"
+              href="https://www.w3schools.com/jsref/met_win_prompt.asp"
+              >Prompt</a
+            >
+          </div>
         </div>
         <div class="ex-main">
           <div>
@@ -82,6 +114,18 @@
             När input value är 5 tecken långt ska broswern alerta att vi är
             klara. När användaren har klickat ok ska input disablas.
           </p>
+          <div class="ex-desc-links">
+            <h3>Hjälplänkar</h3>
+            <a
+              target="_blank"
+              href="https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute"
+              >Set Attribute</a
+            >
+
+            <a target="_blank" href="https://javascript.info/keyboard-events"
+              >Keyboard Events</a
+            >
+          </div>
         </div>
         <div class="ex-main">
           <div>
@@ -96,9 +140,10 @@
         <div class="ex-desc">
           <p>
             Hantera event så resultatet av operand 1 och operand 2 skrivs ut i
-            result när en av button med operatorer hovras.
+            result när en button med operator hovras. När vi slutar hovra skall
+            result nollställas.
             <br />
-            När vi slutar hovra skall result nollställas.
+            (Använd gärna custom attributes på html-elementen)
             <br />
             <br />
             I operanderna tillåts endast siffror och leading zeroes skall
@@ -111,12 +156,20 @@
             <br />
             ex. om vi skriver 6700 och tar bort 67 ska vi ej ha 00 kvar.
           </p>
+          <div class="ex-desc-links">
+            <h3>Hjälplänkar</h3>
+            <a
+              target="_blank"
+              href=" https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseover_event"
+              >Hover Events</a
+            >
+          </div>
         </div>
         <div class="ex-main">
           <div>
             <label for="ex4-input1">Operand 1</label>
             <input type="text" placeholder="Operand 1" id="ex4-input1" />
-            <div>
+            <div class="button-group">
               <button class="button btn-operator" id="ex4-button1" op="+">
                 ➕
               </button>
