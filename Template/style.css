@@ -73,6 +73,33 @@ body {
   border-radius: 7px 7px 0 0;
 }
 
+.ex-desc-links {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 7px;
+  border: 1px solid white;
+}
+
+.ex-desc-links h3 {
+  text-decoration: underline;
+  margin-bottom: 0.25rem;
+  font-size: 18px;
+}
+
+.ex-desc-links a {
+  text-decoration: none;
+  color: rgb(57, 57, 214);
+  transition: color 0.6s;
+  font-size: 13px;
+}
+
+.ex-desc-links a:hover {
+  color: rgb(211, 160, 65);
+  transition: color 0.3s;
+}
+
 .ex-main {
   background-color: rgb(121, 118, 118);
   grid-column: 2;
