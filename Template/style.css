@@ -174,3 +174,10 @@ label[for^='ex5-input'] {
 input[id^='ex5-input'] {
   margin-left: 0.2rem;
 }
+
+#ex6-box {
+  height: 40px;
+  aspect-ratio: 1/1;
+  background-color: white;
+  margin: 1rem auto;
+}
