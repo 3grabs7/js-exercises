@@ -233,6 +233,67 @@
           </div>
         </div>
       </div>
+      <!-- EXERCISE 6 -->
+      <div class="ex-container">
+        <div class="ex-header"><h1>Exercise 6</h1></div>
+        <div class="ex-desc">
+          <p>
+            Hantera event till select så när en användare ändrar i dropdownmenyn
+            ska boxen byta till vald färg.
+            <br />
+            <br />
+            Hantera event för checkboxen så boxen roterar så länge chechboxen är
+            checked.
+          </p>
+          <div class="ex-desc-links">
+            <h3>Hjälplänkar</h3>
+            <a
+              target="_blank"
+              href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select"
+              >Select</a
+            >
+            <a
+              target="_blank"
+              href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event"
+              >Change Event</a
+            >
+            <a
+              target="_blank"
+              href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/input_event"
+              >Input Event</a
+            >
+            <a
+              target="_blank"
+              href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style"
+              >Change Style</a
+            >
+            <a
+              target="_blank"
+              href="https://developer.mozilla.org/en-US/docs/Web/API/setInterval"
+              >Intervals</a
+            >
+          </div>
+        </div>
+        <div class="ex-main">
+          <div>
+            <select name="box-color" id="ex6-select">
+              <option value="" disabled selected>Choose color</option>
+              <option value="red">Red</option>
+              <option value="green">Green</option>
+              <option value="blue">Blue</option>
+            </select>
+            <div>
+              <!-- lägger boxen i en ny div pga den översta diven påverkas av flexbox och kommer alltid
+                göra sig själv lika bred som det bredaste elementet bland flexitems. -->
+              <div id="ex6-box"></div>
+            </div>
+            <div>
+              <input type="checkbox" id="ex6-box-rot" />
+              <label for="ex6-box-rot">Rotate</label>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="ex-container"></div>
       <div class="ex-container"></div>
     </div>
