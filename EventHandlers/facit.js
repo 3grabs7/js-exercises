@@ -1,6 +1,6 @@
 /****************\
-  ** Exercise 1 **
- \****************/
+ ** Exercise 1 **
+\****************/
 const exOneInputElement = document.querySelector('#ex1-input');
 const exOneButtonElement = document.querySelector('#ex1-button');
 
@@ -9,8 +9,8 @@ exOneButtonElement.addEventListener('click', () => {
 });
 
 /****************\
-  ** Exercise 2 **
- \****************/
+ ** Exercise 2 **
+\****************/
 const exTwoInputOneElement = document.querySelector('#ex2-input1');
 const exTwoInputTwoElement = document.querySelector('#ex2-input2');
 const exTwoButtonOneElement = document.querySelector('#ex2-button1');
@@ -39,8 +39,8 @@ function inputIsValidated(input) {
 }
 
 /****************\
-  ** Exercise 3 **
- \****************/
+ ** Exercise 3 **
+\****************/
 const exThreeInputElement = document.querySelector('#ex3-input');
 exThreeInputElement.addEventListener('keydown', (e) => {
   /*
@@ -60,8 +60,8 @@ exThreeInputElement.addEventListener('keyup', () => {
 });
 
 /****************\
-  ** Exercise 4 **
- \****************/
+ ** Exercise 4 **
+\****************/
 const exFourInputOpOneElement = document.querySelector('#ex4-input1');
 const exFourInputOpTwoElement = document.querySelector('#ex4-input2');
 const exFourInputResultElement = document.querySelector('#ex4-input3');
@@ -113,8 +113,8 @@ const calculator = {
 };
 
 /****************\
-  ** Exercise 5 **
- \****************/
+ ** Exercise 5 **
+\****************/
 exFiveButtonPlusElement = document.querySelector('#ex5-button1');
 exFiveButtonMinusElement = document.querySelector('#ex5-button2');
 exFiveInputWrapperElement = document.querySelector('#ex5-input-wrapper');
@@ -165,8 +165,8 @@ function getInputCollection() {
 }
 
 /****************\
-  ** Exercise 6 **
- \****************/
+ ** Exercise 6 **
+\****************/
 const exSixSelectElement = document.querySelector('#ex6-select');
 const exSixBoxElement = document.querySelector('#ex6-box');
 const exSixCheckboxElement = document.querySelector('#ex6-box-rot');
@@ -189,4 +189,65 @@ exSixCheckboxElement.addEventListener('input', (e) => {
     rotation++;
     exSixBoxElement.style.transform = `rotate(${rotation}deg)`;
   }, 50);
+});
+
+/****************\
+ ** Exercise 7 **
+\****************/
+const exSevenBoxOne = document.querySelector('#ex7-box1');
+const exSevenBoxTwo = document.querySelector('#ex7-box2');
+const exSevenBoxThree = document.querySelector('#ex7-box3');
+
+// objekt som håller nuvarande färger på våra boxes
+const colorTracker = {
+  'ex7-box1': 'red',
+  'ex7-box2': 'green',
+  'ex7-box3': 'blue',
+};
+
+// vi sätter inline style så vi slipper leta i computed styles efter applicerat stylesheet
+exSevenBoxOne.style.backgroundColor = colorTracker[exSevenBoxOne.id];
+exSevenBoxTwo.style.backgroundColor = colorTracker[exSevenBoxTwo.id];
+exSevenBoxThree.style.backgroundColor = colorTracker[exSevenBoxThree.id];
+
+let draggedElement;
+
+document.addEventListener('dragstart', function (event) {
+  /*
+      regex säger att vi vill matcha ex7-box följt av oändligt många siffror 
+      och sista tecknet måste vara en siffra
+      på detta sätt förhindrar vi vårt pattern att matcha på wrappern (ex7-box-wrapper)
+    */
+  if (event.target.id.match(/ex7-box[0-9]*$/)) {
+    draggedElement = event.target;
+  }
+});
+
+document.addEventListener('dragover', function (event) {
+  event.preventDefault();
+});
+
+document.addEventListener('dragenter', function (event) {
+  if (event.target.id.match(/ex7-box[0-9]*$/)) {
+    draggedColor = window.getComputedStyle(draggedElement).backgroundColor;
+    draggedElement.style.backgroundColor = window.getComputedStyle(
+      event.target
+    ).backgroundColor;
+    event.target.style.backgroundColor = draggedColor;
+  }
+});
+
+document.addEventListener('dragleave', function (event) {
+  if (event.target.id.match(/ex7-box[0-9]*$/)) {
+    event.target.style.backgroundColor = colorTracker[event.target.id];
+    draggedElement.style.backgroundColor = colorTracker[draggedElement.id];
+  }
+});
+
+document.addEventListener('drop', function (event) {
+  if (event.target.id.match(/ex7-box[0-9]*$/)) {
+    const tempColor = colorTracker[draggedElement.id];
+    colorTracker[draggedElement.id] = colorTracker[event.target.id];
+    colorTracker[event.target.id] = tempColor;
+  }
 });
