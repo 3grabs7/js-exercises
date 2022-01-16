@@ -178,3 +178,15 @@ label {
 .hidden {
   display: none;
 }
+
+a,
+a:visited {
+  color: purple;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+a:hover {
+  color: orange;
+  transition: 0.4s;
+}
