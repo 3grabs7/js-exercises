@@ -1,0 +1,11 @@
+.warning {
+  background-color: black;
+  border-radius: 0 0 7px 7px;
+  color: red;
+  padding: 0.25rem;
+  padding-left: 3rem;
+}
+
+.warning .button {
+  margin-left: 0.5rem;
+}

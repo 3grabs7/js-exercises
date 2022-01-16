@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../Template/style.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Async/Await + Callbacks</title>
+  </head>
+  <body>
+    <div class="nav">
+      <div>
+        <h3>JavaScript Exercises</h3>
+        <h1>Async/Await + Callbacks</h1>
+      </div>
+      <div>
+        <label for="facitToggle">Facit</label>
+        <button
+          class="button facit-toggle"
+          onclick="toggleFacit()"
+          id="facitToggle"
+        ></button>
+      </div>
+    </div>
+    <div class="warning">
+      Note, the js-exercise API must be running and connectable
+      <button class="button" id="dismissButton">Dismiss</button>
+    </div>
+    <div class="main-container">
+      <!-- EXERCISE * -->
+      <!-- id selectors follows the pattern 'ex*[type]*' -->
+
+      <div class="ex-container">
+        <div class="ex-header"><h2>Exercise *</h2></div>
+        <div class="ex-desc">
+          <p>Beskrivning</p>
+          <div class="ex-desc-links">
+            <h3>Hjälplänkar</h3>
+            <a target="_blank" href="">Helper Link</a>
+          </div>
+        </div>
+        <div class="ex-main">
+          <div>Övningsyta</div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="../template/toggleFacit.js"></script>
+  <script src="./script.js"></script>
+</html>
+
+<!--
+    validering
+    frys input
+    felaktigt tecken växer -> täcker skärmen -> exploderar
+    text visas -> felaktigt tecken
+-->
