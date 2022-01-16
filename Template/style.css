@@ -157,13 +157,13 @@ body {
   color: white;
   border-radius: 7px;
   border: none;
-  box-shadow: 0 0 3px 1px rgb(24, 24, 24);
   transition: all 500ms;
 }
 
 .button:hover {
   cursor: pointer;
-  box-shadow: 0 0 16px -6px rgb(168, 168, 168);
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 4px 5px 0 black;
   transition: all 500ms;
 }
 
