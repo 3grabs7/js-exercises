@@ -1,51 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../Template/style.css" />
-    <link rel="stylesheet" href="./style.css" />
-    <title>Async/Await + Callbacks</title>
-  </head>
-  <body>
-    <div class="nav">
-      <div>
-        <h3>JavaScript Exercises</h3>
-        <h1>Async/Await + Callbacks</h1>
-      </div>
-      <div>
-        <label for="facitToggle">Facit</label>
-        <button
-          class="button facit-toggle"
-          onclick="toggleFacit()"
-          id="facitToggle"
-        ></button>
-      </div>
-    </div>
-    <div class="warning">
-      Note, the js-exercise API must be running and connectable
-      <button class="button" id="dismissButton">Dismiss</button>
-    </div>
-    <div class="main-container">
-      <!-- EXERCISE * -->
-      <!-- id selectors follows the pattern 'ex*[type]*' -->
 
-      <div class="ex-container">
-        <div class="ex-header"><h2>Exercise *</h2></div>
-        <div class="ex-desc">
-          <p>Beskrivning</p>
-          <div class="ex-desc-links">
-            <h3>Hjälplänkar</h3>
-            <a target="_blank" href="">Helper Link</a>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../Template/style.css" />
+  <link rel="stylesheet" href="./style.css" />
+  <title>Async/Await + Callbacks</title>
+</head>
+
+<body>
+  <div class="nav">
+    <div>
+      <h3>JavaScript Exercises</h3>
+      <h1>Async/Await + Callbacks</h1>
+    </div>
+    <div>
+      <label for="facitToggle">Facit</label>
+      <button class="button facit-toggle" onclick="toggleFacit()" id="facitToggle"></button>
+    </div>
+  </div>
+  <div class="warning" data-action>
+    Note, the <a href="https://github.com/3grabs7/js-exercises-api" target="_blank">js-exercise API</a> must be running
+    and connectable
+    <button class="button">Dismiss</button>
+  </div>
+  <div class="main-container">
+    <!-- EXERCISE * -->
+    <!-- id selectors follows the pattern 'ex*[type]*' -->
+
+    <div class="ex-container">
+      <div class="ex-header">
+        <h2>Exercise *</h2>
+      </div>
+      <div class="ex-desc">
+        <p>Beskrivning</p>
+        <div class="ex-desc-links">
+          <h3>Hjälplänkar</h3>
+          <a target="_blank" href="">Helper Link</a>
+        </div>
+      </div>
+      <div class="ex-main">
+        <div>Övningsyta</div>
+      </div>
+    </div>
+
+    <!-- EXERCISE 1 -->
+    <!-- id selectors follows the pattern 'ex*[type]*' -->
+
+    <div class="ex-container">
+      <div class="ex-header">
+        <h2>Exercise 1</h2>
+      </div>
+      <div class="ex-desc">
+        <p>
+          Kalla på apin, utan throttle, och sätt sourcen på bilden till höger
+          till url i responsen från apin.
+        </p>
+        <div class="ex-desc-links">
+          <h3>Hjälplänkar</h3>
+          <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/fetch">Fetch</a>
+        </div>
+      </div>
+      <div class="ex-main">
+        <div>
+          <h4>Bild</h4>
+          <img
+            src="https://www.coogfans.com/uploads/db5902/original/3X/8/1/81173237ffa580ef710b0862fdddaac163274db1.jpeg"
+            alt="" />
+        </div>
+      </div>
+    </div>
+
+    <section class="ex-container">
+      <div class="ex-header">
+        <h2>Exercise 1</h2>
+      </div>
+      <div class="ex-desc">
+        <img style="width: 100%;" src="img/url_layout.png" alt="">
+        <p>Använd <a href="https://javascript.info/url">URL</a> objektet för att bygga ett API
+          anrop till <a href="https://openweathermap.org/current#name">OpenWeather</a>
+          för att få tag på info om vädret i staden du är just nu. Skriv ut url:n i frågefönstret.
+        </p>
+        <p>
+          Lek runt med URL objektet i dev konsollen inne i Chrome innan
+          du löser uppgiften. Då får du en bra insyn i vad som finns i URL objektet
+          och vad som händer när man kallar på metoderna och ändrar på properties.
+        </p>
+        <ul>
+          <li>Börja med <code>new URL('https://api.openweathermap.org/data/2.5/weather')</code></li>
+          <li>Fyll på search parametrar via metoderna i url.searchParams</li>
+          <li>Bygg en url som använder alla parametrar under 'Parameters'</li>
+        </ul>
+        <h3>Bonus:</h3>
+        <p>Prompta att användaren får välja stad via
+          <a href="https://www.w3schools.com/jsref/met_win_prompt.asp">prompt()</a>
+        </p>
+      </div>
+      <div class="ex-main">
+        <div id="ex-1" class="fx fx-row fx-center fx-space">
+          <pre id="ex-1-out">Skriv url:n här</pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="ex-container">
+      <div class="ex-header">
+        <h2>Exercise 2</h2>
+      </div>
+      <div class="ex-desc">
+        <img style="width: 60%; margin: 40px 0px 0px 0px;" src="https://www.w3schools.com/js/pic_ajax.gif" alt="">
+        <p>Skapa ett <a href="https://javascript.info/xmlhttprequest">XMLHttpRequest</a> objekt för att
+          skicka en
+          begäran till url:n i Fråga 1
+        </p>
+        <p>
+          Här är de viktigaste stegen:
+        </p>
+        <ol>
+          <li>Skapa ett objekt med <code>new</code></li>
+          <li>
+            kalla på <code>open()</code> för att ställa in destination
+          </li>
+          <li>
+            sätt <code>responseType</code> till vilken typ av svar du vill ha
+          </li>
+          <li>
+            bind onload eventet för att göra något med resultatet. (p.s. kolla status kod 200)
+          </li>
+          <li>
+            bind onerror eventet för att debugga om något går snett
+          </li>
+          <li>
+            kalla på <code>send()</code> för att påbörja kommunikationen
+          </li>
+        </ol>
+        <h3>Bonus:</h3>
+        <p>Pröva att binda till onprogress eventet och skapa någon
+          slags enkel visuell indikator över hur långt nerladdningen kommit.
+          <a href="ftp://speedtest.tele2.net/">Tele2</a> har en en bra FTP server
+          som kan användas för att testa ladda ner större filer. Ta bara
+          länken "ftp://speedtest.tele2.net/" + filnamnet på den filen du vill ladda ner.
+        </p>
+        <p>
+          Använd <a href="https://developer.mozilla.org/en-US/docs/Web/API/ProgressEvent">progress
+            objektet</a>
+          som skickas med som parameter.
+        </p>
+      </div>
+      <div class="ex-main">
+        <div id="ex-2" class="fx fx-row fx-center fx-space">
+          <pre id="ex-2-out">Skriv ut resultatet här</pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="ex-container">
+      <div class="ex-header">
+        <h2>Exercise 3</h2>
+      </div>
+      <div class="ex-desc">
+        <p>Det finns en alternativ AJAX api till <code>XMLHttpRequest</code> som
+          heter <a href="https://javascript.info/fetch"><code>fetch()</code></a>
+          och är betydligt lättare att använda, men som bygger på två koncept
+          kallat <a href="https://javascript.info/promise-basics"><code>Promise</code></a> och
+          <a href="https://javascript.info/async-await"><code>async/await</code></a>.
+          I denna fråga testar du att använda <code>fetch()</code> och om du är mer nyfiken
+          på hur det fungerar så kommer resten av frågorna att stegvis förklara logiken bakom.
+        </p>
+      </div>
+      <div class="ex-main">
+        <div id="ex-3" class="fx fx-row fx-center">
+          <button id="ex-3-btn">Contact Server</button>
+          <pre id="ex-3-out">Skriv ut resultatet här</pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="ex-container">
+      <div class="ex-header">
+        <h2>Fråga 4</h2>
+      </div>
+      <div class="ex-desc">
+        <p>Nu är det dags att göra arbete som tar längre tid.
+          I detta fallet handlar det om att flytta en boll
+          runt alla hörn längs en bana när man klickar på den.
+          Använd <a href="https://www.w3schools.com/jsref/met_win_settimeout.asp"><code>setTimeout()</code></a>
+          för att sprida ut dina instruktioner i tid.
+        </p>
+        <p>Knepet här ligger i att varje gång vi måste
+          göra ett hopp i tiden, antingen för att vänta
+          en bestämd tid eller på användaren eller på
+          en HTTP begäran, så använder vi oss av en callback
+          (en funktion som vi delar ut som kommer att kallas på längre fram i tiden av browsern)
+          för att styra vad som ska ske efter tidshoppet. Funktionerna vi sätter på events
+          (s.k. event handlers) är också callbacks som händer lägre fram i tiden.
+        </p>
+        <p>Det knepiga med denna
+          uppgiften är att vi kommer att behöva vänta fyra gånger, så vi kommer i våra
+          callbackfunktioner att behöva skapa ytterligare callbackfunktioner.
+        </p>
+      </div>
+      <div class="ex-main">
+        <div id="ex-4" class="fx fx-row fx-center">
+          <div class="edge">
+            <div class="ball"></div>
           </div>
         </div>
-        <div class="ex-main">
-          <div>Övningsyta</div>
+      </div>
+    </section>
+
+    <section class="ex-container">
+      <div class="ex-header">
+        <h2>Fråga 5</h2>
+      </div>
+      <div class="ex-desc">
+        <p>Ännu en gång så ska vi vänta på bollen, men jag har gett er en
+          funktion <code>defer()</code> som går att await:a eller "vänta på". Använd <code>await</code> tillsammans
+          med denna funktionen för att slippa nästlade callbacks och återgå till ett kodflow utan indentering.
+        </p>
+      </div>
+      <div class="ex-main">
+        <div id="ex-5" class="fx fx-row fx-center">
+          <div class="edge">
+            <div class="ball"></div>
+          </div>
         </div>
       </div>
-    </div>
-  </body>
+    </section>
+
+    <section class="ex-container">
+      <div class="ex-header">
+        <h2>Fråga 6</h2>
+      </div>
+      <div class="ex-desc">
+        <p>
+          Denna fråga handlar om att vänta på en massa async funktioner samtidigt.
+          Istället för att köra-vänta-köra-vänta i serie så ska du köra-alla-vänta-på-alla tills det att alla är klara.
+        </p>
+        <p>Knepet här ligger i att först samla alla sina promises som man vill vänta på
+          i en array istället för att awaita dem direkt. Sen är det bara att loopa igenom
+          och vänta på dem en och en med <code>await</code>.
+        </p>
+      </div>
+      <div class="ex-main">
+        <div id="ex-6" class="fx fx-row fx-center">
+          <div class="edge">
+            <div class="ball" style="top: 0%;"></div>
+            <div class="ball" style="top: 33%;"></div>
+            <div class="ball" style="top: 66%;"></div>
+            <div class="ball" style="top: 100%;"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
 
 <script src="../Template/util.js"></script>
 <script src="../Template/toggleFacit.js"></script>
