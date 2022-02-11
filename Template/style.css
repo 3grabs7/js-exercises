@@ -12,6 +12,7 @@ body {
 .nav {
   position: sticky;
   top: 0;
+  z-index: 100;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -131,14 +132,14 @@ body {
   background-color: rgb(172, 36, 36);
 }
 .facit-toggle.on::after {
-  content: 'Toggle Off';
+  content: "Toggle Off";
 }
 
 .facit-toggle:not(.on) {
   background-color: rgb(34, 104, 34);
 }
 .facit-toggle:not(.on)::after {
-  content: 'Toggle On';
+  content: "Toggle On";
 }
 
 .button-group {
