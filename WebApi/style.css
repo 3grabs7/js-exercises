@@ -4,3 +4,49 @@ pre {
   word-wrap: break-word;
   white-space: pre-wrap;
 }
+
+.rel {
+  position: relative;
+}
+
+#ex-6-pokedex {
+  max-width: 100%;
+}
+
+#ex-6-sprite {
+  transform: scale(1.5);
+  position: absolute;
+  left: 15%;
+  top: 32%;
+}
+
+#ex-6-name {
+  position: absolute;
+  left: 15%;
+  top: 81%;
+
+  color: black;
+  text-shadow: 0px 0px 1px black;
+}
+
+#ex-6-flavortext {
+  position: absolute;
+  left: 61%;
+  top: 27%;
+  height: 18%;
+  width: 31%;
+  overflow: hidden;
+
+  color: black;
+  text-shadow: 0px 0px 1px black;
+}
+#ex-6-prev {
+  position: absolute;
+  left: 64%;
+  top: 84%;
+}
+#ex-6-next {
+  position: absolute;
+  left: 81%;
+  top: 84%;
+}

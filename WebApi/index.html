@@ -98,10 +98,10 @@
             sätt <code>responseType</code> till vilken typ av svar du vill ha
           </li>
           <li>
-            bind onload eventet för att göra något med resultatet. (p.s. kolla status kod 200)
+            bind <code>onload</code> eventet för att göra något med resultatet. (p.s. kolla status kod 200)
           </li>
           <li>
-            bind onerror eventet för att debugga om något går snett
+            bind <code>onerror</code> eventet för att debugga om något går snett
           </li>
           <li>
             kalla på <code>send()</code> för att påbörja kommunikationen
@@ -141,10 +141,36 @@
         </div>
       </div>
     </section>
+
+    <section class="ex-container">
+      <div class="ex-header">
+        <h2>Exercise 6</h2>
+      </div>
+      <div class="ex-desc">
+        <p>
+          Använd Pokeapi för att skapa en riktig pokedex!
+        </p>
+        <p>Studera json resultatet, framförallt att varje pokemon har en 'sprite'. Att hitta beskrivningen för varje pokemon är extra klurigt och kommer att kräva ett till <code>fetch</code> anrop</p>
+        <div class="ex-desc-links">
+          <h3>Hjälplänkar</h3>
+          <a href="https://pokeapi.co/docs/v2#pokemon">Pokeapi Pokemon</a>
+        </div>
+      </div>
+      <div class="ex-main">
+        <div id="ex-6" class="fx fx-row fx-center">
+          <div class="rel">
+            <img id="ex-6-pokedex" src="img/pokedex.gif">
+            <img id="ex-6-sprite" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/258.png">
+            <p id="ex-6-name">Mudkip</p>
+            <p id="ex-6-flavortext">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur voluptatum nesciunt maxime?</p>
+            <button id="ex-6-prev">Prev</button>
+            <button id="ex-6-next">Next</button>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- TODO 
-      * todo övning GET+POST
-      * poke api övning, scrolla pokemons och visa namn + bild + flavortext
-      * blogg övning, visa ett inlägg + kommentarer, och länka till användare
+      * blogg övning, visa ett inlägg + kommentarer, och visa info om användare när man klickar på kommentar
     -->
 
   </div>

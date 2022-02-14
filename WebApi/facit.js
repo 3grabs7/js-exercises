@@ -1,6 +1,7 @@
 /****************\
  ** Exercise 1 **
 \****************/
+// jag lägger url variabeln utanför scope så att den kan nås senare i Exercise 2-4
 let url;
 {
   url = new URL("https://localhost");
@@ -24,17 +25,16 @@ let url;
  ** Exercise 2 **
 \****************/
 document.getElementById("ex-2-btn").onclick = function (event) {
-  let out = document.getElementById("ex-2-out");
+  const out = document.getElementById("ex-2-out");
 
   fetch(url)
     .then((response) => {
-      if (!response.ok) {
-        throw `${response.status} ${response.statusText}`;
-      }
+      // vi avbryter om svaret
+      if (!response.ok) throw `${response.status} ${response.statusText}`;
       return response.text();
     })
     .then((text) => {
-      let prettyJSON = JSON.stringify(JSON.parse(text), null, " ");
+      const prettyJSON = JSON.stringify(JSON.parse(text), null, " ");
       out.innerText = prettyJSON;
     })
     .catch((error) => console.log(error));
@@ -44,8 +44,8 @@ document.getElementById("ex-2-btn").onclick = function (event) {
  ** Exercise 3 **
 \****************/
 document.getElementById("ex-3-btn").onclick = function (event) {
-  let out = document.getElementById("ex-3-out");
-  let xhr = new XMLHttpRequest();
+  const out = document.getElementById("ex-3-out");
+  const xhr = new XMLHttpRequest();
 
   xhr.open("GET", url);
   xhr.responseType = "text";
@@ -74,23 +74,22 @@ document.getElementById("ex-3-btn").onclick = function (event) {
  ** Exercise 4 **
 \****************/
 document.getElementById("ex-4-btn").onclick = function (event) {
-  let out = document.getElementById("ex-4-out");
+  const out = document.getElementById("ex-4-out");
 
   fetch(url)
     .then((response) => {
-      if (!response.ok) {
-        throw `${response.status} ${response.statusText}`;
-      }
+      if (!response.ok) throw `${response.status} ${response.statusText}`;
       return response.json();
     })
-    .then((object) => {
-      const mainWeather = object.weather[0];
+    .then((weatherReport) => {
+      const mainWeather = weatherReport.weather[0];
       const title = mainWeather.main;
       const flavortext = mainWeather.description;
+
       const imgUrl = new URL("http://openweathermap.org");
       imgUrl.pathname = `/img/wn/${mainWeather.icon}@4x.png`;
 
-      const mainTemp = object.main;
+      const mainTemp = weatherReport.main;
       const temp = mainTemp.temp;
       const feelsLike = mainTemp.feels_like;
 
@@ -103,3 +102,54 @@ document.getElementById("ex-4-btn").onclick = function (event) {
     })
     .catch((error) => console.log(error));
 };
+
+/****************\
+ ** Exercise 6 **
+\****************/
+{
+  let currentPokemonId = 1;
+  fetchPokemon(currentPokemonId);
+
+  const prevBtn = document.getElementById("ex-6-prev");
+  const nextBtn = document.getElementById("ex-6-next");
+
+  prevBtn.onclick = function () {
+    if (currentPokemonId > 1) currentPokemonId -= 1;
+    fetchPokemon(currentPokemonId);
+  };
+  nextBtn.onclick = function () {
+    currentPokemonId += 1;
+    fetchPokemon(currentPokemonId);
+  };
+
+  const spriteImg = document.getElementById("ex-6-sprite");
+  const namePara = document.getElementById("ex-6-name");
+  const flavortextPara = document.getElementById("ex-6-flavortext");
+
+  function fetchPokemon(id) {
+    const pokemonUrl = new URL("https://pokeapi.co");
+    pokemonUrl.pathname = `/api/v2/pokemon/${id}`;
+
+    fetch(pokemonUrl)
+      .then((response) => {
+        if (!response.ok) throw `${response.status} ${response.statusText}`;
+        return response.json();
+      })
+      .then((pokemon) => {
+        spriteImg.src = pokemon.sprites.front_default;
+        namePara.textContent = pokemon.name;
+
+        // Här fortsätter jag fetch kedjan genom att returnera en ny fetch
+        return fetch(pokemon.species.url);
+      })
+      .then((response) => {
+        if (!response.ok) throw `${response.status} ${response.statusText}`;
+        return response.json();
+      })
+      .then((species) => {
+        flavortextPara.textContent = species.flavor_text_entries[0].flavor_text;
+      })
+      // om något går fel i något av de fetch vi gör så kommer felet att samlas här
+      .catch((error) => console.log(error));
+  }
+}
