@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../Template/style.css" />
+  <link rel="stylesheet" href="./style.css" />
+  <title>Async/Await + Callbacks</title>
+</head>
+
+<body>
+  <div class="nav">
+    <div>
+      <h3>JavaScript Exercises</h3>
+      <h1>Async/Await + Callbacks</h1>
+    </div>
+    <div>
+      <label for="facitToggle">Facit</label>
+      <button class="button facit-toggle" onclick="toggleFacit()" id="facitToggle"></button>
+    </div>
+  </div>
+  <div class="warning" data-action>
+    Note, the <a href="https://github.com/3grabs7/js-exercises-api" target="_blank">js-exercise API</a> must be running and connectable
+    <button class="button">Dismiss</button>
+  </div>
+  <div class="main-container">
+
+    <section class="ex-container">
+      <div class="ex-header">
+        <h2>Exercise 1</h2>
+      </div>
+      <div class="ex-desc">
+        <img style="width: 100%;" src="img/url_layout.png" alt="">
+        <p>
+          Använd URL klassen för att bygga ett http-anrop till OpenWeather webbapi:n.
+        </p>
+        <p>
+          OpenWeather används för att få tag på info om vädret i t.ex. en stad.
+        </p>
+        <p>
+          Lek runt med URL objektet i dev konsollen inne i Chrome, titta hur objektet ändras när du ställer in dess properties.
+        </p>
+        <ul>
+          <li>Börja med <code>new URL('https://api.openweathermap.org/data/2.5/weather')</code></li>
+          <li>Fyll på search parametrar via metoderna i url.searchParams</li>
+          <li>Bygg en url som använder alla parametrar under 'Parameters'</li>
+        </ul>
+        <div class="ex-desc-links">
+          <h3>Hjälplänkar</h3>
+          <a href="https://javascript.info/url">URL</a>
+          <a href="https://openweathermap.org/current#name">OpenWeather</a>
+        </div>
+      </div>
+      <div class="ex-main">
+        <div id="ex-1" class="fx fx-row fx-center fx-space">
+          <pre id="ex-1-out">Skriv url:n här</pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="ex-container">
+      <div class="ex-header">
+        <h2>Exercise 3</h2>
+      </div>
+      <div class="ex-desc">
+        Använd <code>fetch()</code> för att anropa URL:en från föregående uppgift. Promta användaren om en stad och skriv ut JSON svaret i &&lt;pre&gt;
+        </p>
+        <div class="ex-desc-links">
+          <h3>Hjälplänkar</h3>
+          <a href="https://javascript.info/fetch"><code>fetch()</code></a>
+        </div>
+      </div>
+      <div class="ex-main">
+        <div id="ex-3" class="fx fx-row fx-center">
+          <button id="ex-3-btn">Contact Server</button>
+          <pre id="ex-3-out">Skriv ut resultatet här</pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="ex-container">
+      <div class="ex-header">
+        <h2>Exercise 2</h2>
+      </div>
+      <div class="ex-desc">
+        <img style="width: 60%; margin: 40px 0px 0px 0px;" src="img/pic_ajax (1).gif" alt="">
+        <p>
+          Skapa ett XMLHttpRequest objekt för att skicka en begäran till url:n i Fråga 1
+        </p>
+        <p>
+          Här är de viktigaste stegen:
+        </p>
+        <ol>
+          <li>Skapa ett objekt med <code>new</code></li>
+          <li>
+            kalla på <code>open()</code> för att ställa in destination
+          </li>
+          <li>
+            sätt <code>responseType</code> till vilken typ av svar du vill ha
+          </li>
+          <li>
+            bind onload eventet för att göra något med resultatet. (p.s. kolla status kod 200)
+          </li>
+          <li>
+            bind onerror eventet för att debugga om något går snett
+          </li>
+          <li>
+            kalla på <code>send()</code> för att påbörja kommunikationen
+          </li>
+        </ol>
+        <div class="ex-desc-links">
+          <h3>Hjälplänkar</h3>
+          <a href="https://javascript.info/xmlhttprequest">XMLHttpRequest</a>
+        </div>
+      </div>
+      <div class="ex-main">
+        <div id="ex-2" class="fx fx-row fx-center fx-space">
+          <pre id="ex-2-out">Skriv ut resultatet här</pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- TODO 
+      * todo övning GET+POST
+      * poke api övning, scrolla pokemons och visa namn + bild + flavortext
+      * blogg övning, visa ett inlägg + kommentarer, och länka till användare
+    -->
+
+  </div>
+</body>
+
+<script src="../Template/util.js"></script>
+<script src="../Template/toggleFacit.js"></script>
+
+</html>

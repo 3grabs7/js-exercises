@@ -1,0 +1,6 @@
+pre {
+  max-width: 100%;
+  font-size: large;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
