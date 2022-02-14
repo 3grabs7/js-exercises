@@ -7,23 +7,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../Template/style.css" />
   <link rel="stylesheet" href="./style.css" />
-  <title>Async/Await + Callbacks</title>
+  <title>Webbapi anrop</title>
 </head>
 
 <body>
   <div class="nav">
     <div>
       <h3>JavaScript Exercises</h3>
-      <h1>Async/Await + Callbacks</h1>
+      <h1>Webbapi anrop</h1>
     </div>
     <div>
       <label for="facitToggle">Facit</label>
       <button class="button facit-toggle" onclick="toggleFacit()" id="facitToggle"></button>
     </div>
-  </div>
-  <div class="warning" data-action>
-    Note, the <a href="https://github.com/3grabs7/js-exercises-api" target="_blank">js-exercise API</a> must be running and connectable
-    <button class="button">Dismiss</button>
   </div>
   <div class="main-container">
 
@@ -36,17 +32,18 @@
         <p>
           Använd URL klassen för att bygga ett http-anrop till OpenWeather webbapi:n.
         </p>
-        <p>
-          OpenWeather används för att få tag på info om vädret i t.ex. en stad.
-        </p>
-        <p>
-          Lek runt med URL objektet i dev konsollen inne i Chrome, titta hur objektet ändras när du ställer in dess properties.
-        </p>
         <ul>
-          <li>Börja med <code>new URL('https://api.openweathermap.org/data/2.5/weather')</code></li>
-          <li>Fyll på search parametrar via metoderna i url.searchParams</li>
-          <li>Bygg en url som använder alla parametrar under 'Parameters'</li>
+          <li>Börja med <code>new URL('https://localhost')</code></li>
+          <li>Läs på om API:n och hur du ska bygga url:en</li>
+          <li>Använd properties för att ställa in <code>hosname</code> och <code>pathname</code> </li>
+          <li>Fyll på nödvändgia search parametrar via <code>searchParams</code></li>
         </ul>
+        <p>
+          Lek runt med URL objektet i Inspector konsollen först innan du kodar, titta hur objektet ändras när du ställer in dess properties.
+        </p>
+        <p>
+          OpenWeather är en kommersiell webbapi för att få tag på historisk och framtida väder & temperatur info i t.ex. en stad.
+        </p>
         <div class="ex-desc-links">
           <h3>Hjälplänkar</h3>
           <a href="https://javascript.info/url">URL</a>
@@ -62,27 +59,27 @@
 
     <section class="ex-container">
       <div class="ex-header">
-        <h2>Exercise 3</h2>
+        <h2>Exercise 2</h2>
       </div>
       <div class="ex-desc">
-        Använd <code>fetch()</code> för att anropa URL:en från föregående uppgift. Promta användaren om en stad och skriv ut JSON svaret i &&lt;pre&gt;
+        Använd <code>fetch()</code> för att anropa URL:en från föregående uppgift. Skriv ut svaret i &lt;pre&gt;
         </p>
         <div class="ex-desc-links">
           <h3>Hjälplänkar</h3>
-          <a href="https://javascript.info/fetch"><code>fetch()</code></a>
+          <a href="https://javascript.info/fetch">fetch()</a>
         </div>
       </div>
       <div class="ex-main">
-        <div id="ex-3" class="fx fx-row fx-center">
-          <button id="ex-3-btn">Contact Server</button>
-          <pre id="ex-3-out">Skriv ut resultatet här</pre>
+        <div id="ex-2" class="fx fx-row fx-center">
+          <button id="ex-2-btn">fetch</button>
+          <pre id="ex-2-out">Skriv ut resultatet här</pre>
         </div>
       </div>
     </section>
 
     <section class="ex-container">
       <div class="ex-header">
-        <h2>Exercise 2</h2>
+        <h2>Exercise 3</h2>
       </div>
       <div class="ex-desc">
         <img style="width: 60%; margin: 40px 0px 0px 0px;" src="img/pic_ajax (1).gif" alt="">
@@ -116,12 +113,34 @@
         </div>
       </div>
       <div class="ex-main">
-        <div id="ex-2" class="fx fx-row fx-center fx-space">
-          <pre id="ex-2-out">Skriv ut resultatet här</pre>
+        <div id="ex-3" class="fx fx-row fx-center fx-space">
+          <button id="ex-3-btn">AJAX</button>
+          <pre id="ex-3-out">Skriv ut resultatet här</pre>
         </div>
       </div>
     </section>
 
+    <section class="ex-container">
+      <div class="ex-header">
+        <h2>Exercise 4</h2>
+      </div>
+      <div class="ex-desc">
+        <p>
+          Titta på svaret i Exercise 2 där du använde fetch. Studera informationen i svaret, framförallt <code>weather</code> och <code>main</code>.
+        </p>
+        <p>Använd väderinfon för att skapa en informativ visualisering av vädret just nu.</p>
+        <div class="ex-desc-links">
+          <h3>Hjälplänkar</h3>
+          <a href="https://openweathermap.org/weather-conditions">Väderikon info</a>
+        </div>
+      </div>
+      <div class="ex-main">
+        <div id="ex-4" class="fx fx-row fx-center">
+          <button id="ex-4-btn">Check weather</button>
+          <div id="ex-4-out">Visualisera vädret här</div>
+        </div>
+      </div>
+    </section>
     <!-- TODO 
       * todo övning GET+POST
       * poke api övning, scrolla pokemons och visa namn + bild + flavortext

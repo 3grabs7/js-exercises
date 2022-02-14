@@ -17,18 +17,38 @@ let url;
     console.log(`${key}:${val}`);
   }
 
-  document.querySelector("#ex-1-out").innerText = url;
+  document.getElementById("ex-1-out").innerText = url;
 }
 
 /****************\
  ** Exercise 2 **
 \****************/
-{
-  let out = document.querySelector("#ex-2-out");
+document.getElementById("ex-2-btn").onclick = function (event) {
+  let out = document.getElementById("ex-2-out");
+
+  fetch(url)
+    .then((response) => {
+      if (!response.ok) {
+        throw `${response.status} ${response.statusText}`;
+      }
+      return response.text();
+    })
+    .then((text) => {
+      let prettyJSON = JSON.stringify(JSON.parse(text), null, " ");
+      out.innerText = prettyJSON;
+    })
+    .catch((error) => console.log(error));
+};
+
+/****************\
+ ** Exercise 3 **
+\****************/
+document.getElementById("ex-3-btn").onclick = function (event) {
+  let out = document.getElementById("ex-3-out");
   let xhr = new XMLHttpRequest();
 
   xhr.open("GET", url);
-  xhr.responseType = "json";
+  xhr.responseType = "text";
 
   xhr.onload = function (event) {
     console.log(
@@ -37,8 +57,9 @@ let url;
 
     if (event.target.status === 200) {
       // Begäran lyckades
-      let objekt = event.target.response;
-      out.innerText = JSON.stringify(objekt, null, " ");
+      let text = event.target.response;
+      let prettyJSON = JSON.stringify(JSON.parse(text), null, " ");
+      out.innerText = prettyJSON;
     }
   };
 
@@ -47,14 +68,13 @@ let url;
   };
 
   xhr.send();
-}
+};
 
 /****************\
- ** Exercise 3 **
+ ** Exercise 4 **
 \****************/
-// utan async/await
-{
-  let out = document.querySelector("#ex-3-out");
+document.getElementById("ex-4-btn").onclick = function (event) {
+  let out = document.getElementById("ex-4-out");
 
   fetch(url)
     .then((response) => {
@@ -64,24 +84,22 @@ let url;
       return response.json();
     })
     .then((object) => {
-      out.innerText = JSON.stringify(object, null, " ");
+      const mainWeather = object.weather[0];
+      const title = mainWeather.main;
+      const flavortext = mainWeather.description;
+      const imgUrl = new URL("http://openweathermap.org");
+      imgUrl.pathname = `/img/wn/${mainWeather.icon}@4x.png`;
+
+      const mainTemp = object.main;
+      const temp = mainTemp.temp;
+      const feelsLike = mainTemp.feels_like;
+
+      out.innerHTML = /* html */ `
+        <h3>${title}</h3>
+        <img src="${imgUrl}">
+        <p>${flavortext}</p>
+        <p>Det är ${temp}&#8451; men känns som ${feelsLike}&#8451;</p>
+      `;
     })
     .catch((error) => console.log(error));
-}
-
-// med async/await
-(async function () {
-  let out = document.querySelector("#ex-3-out");
-
-  try {
-    let response = await fetch(url);
-    if (!response.ok) {
-      throw `${response.status} ${response.statusText}`;
-    }
-
-    let object = await response.json();
-    out.innerText = JSON.stringify(object, null, " ");
-  } catch (error) {
-    console.log(error);
-  }
-})();
+};
