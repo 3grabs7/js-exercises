@@ -142,6 +142,47 @@
       </div>
     </section>
 
+    <!-- TODO 
+      * blogg övning, visa ett inlägg + kommentarer, och visa info om användare när man klickar på kommentar
+    -->
+    <section class="ex-container">
+      <div class="ex-header">
+        <h2>Exercise 5</h2>
+      </div>
+      <div class="ex-desc">
+        <p>
+          Använd JSON Placeholder api:n för att hämta ett blogginlägg och alla tillhörande kommentarer.
+        </p>
+        <p>
+          Ett fetch anrop måste ske för att hitta bloggen, ett för att hitta författaren och ett för att hitta alla kommentarer.
+        </p>
+        <p>
+          OBS, Det står inte i guiden men <code>_page</code> och <code>_limit</code> är två query parameter nycklar som finns att använda om man inte vill hämta allt på en gång.
+        </p>
+        <div class="ex-desc-links">
+          <h3>Hjälplänkar</h3>
+          <a href="http://jsonplaceholder.typicode.com/guide/">JSON Placeholder Guide</a>
+        </div>
+      </div>
+      <div class="ex-main">
+        <div id="ex-5" class="fx fx-row fx-center">
+          <div>
+            <div class="post">
+              <h3 id="ex-5-title">Title</h3>
+              <p id="ex-5-content">Content</p>
+              <p id="ex-5-author">Author</p>
+            </div>
+            <div id="ex-5-comments">
+              <div class="comment">
+                <h3>test</h3>
+                <p>test test test</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="ex-container">
       <div class="ex-header">
         <h2>Exercise 6</h2>
@@ -169,9 +210,6 @@
         </div>
       </div>
     </section>
-    <!-- TODO 
-      * blogg övning, visa ett inlägg + kommentarer, och visa info om användare när man klickar på kommentar
-    -->
 
   </div>
 </body>

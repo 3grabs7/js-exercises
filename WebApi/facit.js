@@ -104,6 +104,73 @@ document.getElementById("ex-4-btn").onclick = function (event) {
 };
 
 /****************\
+ ** Exercise 5 **
+\****************/
+{
+  const titleH2 = document.getElementById("ex-5-title");
+  const contentP = document.getElementById("ex-5-content");
+  const authorP = document.getElementById("ex-5-author");
+  const commentsDiv = document.getElementById("ex-5-comments");
+
+  // sök efter användare med id === 1
+  const userUrl = new URL("http://jsonplaceholder.typicode.com/users/1");
+
+  // sök blogginlägg för användare med id === 1
+  const postsUrl = new URL("http://jsonplaceholder.typicode.com/users/1/posts");
+
+  // sök efter max 4 kommentarer relaterade till inlägg 3
+  const commentsUrl = new URL(
+    "http://jsonplaceholder.typicode.com/posts/3/comments"
+  );
+  commentsUrl.searchParams.set("_limit", 4);
+
+  fetch(userUrl)
+    .then((response) => {
+      if (!response.ok) throw `${response.status} ${response.statusText}`;
+      return response.json();
+    })
+    .then((user) => {
+      authorP.textContent = user.name;
+    })
+    .catch((error) => console.log(error));
+
+  fetch(postsUrl)
+    .then((response) => {
+      if (!response.ok) throw `${response.status} ${response.statusText}`;
+      return response.json();
+    })
+    .then((posts) => {
+      const post = posts[0]; // hämta första inlägget
+      titleH2.textContent = post.title;
+      contentP.textContent = post.body;
+    })
+    .catch((error) => console.log(error));
+
+  fetch(commentsUrl)
+    .then((response) => {
+      if (!response.ok) throw `${response.status} ${response.statusText}`;
+      return response.json();
+    })
+    .then((comments) => {
+      // töm div på test kommentaren
+      commentsDiv.innerHTML = "";
+
+      for (let comment of comments) {
+        commentsDiv.insertAdjacentHTML(
+          "beforeend",
+          /* html */ `
+            <div class="comment">
+              <h3>${comment.name}</h3>
+              <p>${comment.body}</p>
+            </div>
+          `
+        );
+      }
+    })
+    .catch((error) => console.log(error));
+}
+
+/****************\
  ** Exercise 6 **
 \****************/
 {
@@ -123,8 +190,8 @@ document.getElementById("ex-4-btn").onclick = function (event) {
   };
 
   const spriteImg = document.getElementById("ex-6-sprite");
-  const namePara = document.getElementById("ex-6-name");
-  const flavortextPara = document.getElementById("ex-6-flavortext");
+  const nameP = document.getElementById("ex-6-name");
+  const flavortextP = document.getElementById("ex-6-flavortext");
 
   function fetchPokemon(id) {
     const pokemonUrl = new URL("https://pokeapi.co");
@@ -137,7 +204,7 @@ document.getElementById("ex-4-btn").onclick = function (event) {
       })
       .then((pokemon) => {
         spriteImg.src = pokemon.sprites.front_default;
-        namePara.textContent = pokemon.name;
+        nameP.textContent = pokemon.name;
 
         // Här fortsätter jag fetch kedjan genom att returnera en ny fetch
         return fetch(pokemon.species.url);
@@ -147,7 +214,7 @@ document.getElementById("ex-4-btn").onclick = function (event) {
         return response.json();
       })
       .then((species) => {
-        flavortextPara.textContent = species.flavor_text_entries[0].flavor_text;
+        flavortextP.textContent = species.flavor_text_entries[0].flavor_text;
       })
       // om något går fel i något av de fetch vi gör så kommer felet att samlas här
       .catch((error) => console.log(error));
