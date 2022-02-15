@@ -1,6 +1,4 @@
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
   font-family: Helvetica;
 }
@@ -9,9 +7,14 @@ body {
   background-color: #333;
 }
 
+code {
+  color: darkgoldenrod;
+}
+
 .nav {
   position: sticky;
   top: 0;
+  z-index: 100;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -189,4 +192,16 @@ a:visited {
 a:hover {
   color: orange;
   transition: 0.4s;
+}
+
+.warning {
+  background-color: black;
+  border-radius: 0 0 7px 7px;
+  color: red;
+  padding: 0.25rem;
+  padding-left: 3rem;
+}
+
+.warning .button {
+  margin-left: 0.5rem;
 }

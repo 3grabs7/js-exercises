@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../Template/style.css" />
+  <link rel="stylesheet" href="./style.css" />
+  <title>Webbapi anrop</title>
+</head>
+
+<body>
+  <div class="nav">
+    <div>
+      <h3>JavaScript Exercises</h3>
+      <h1>Webbapi anrop</h1>
+    </div>
+    <div>
+      <label for="facitToggle">Facit</label>
+      <button class="button facit-toggle" onclick="toggleFacit()" id="facitToggle"></button>
+    </div>
+  </div>
+  <div class="main-container">
+
+    <section class="ex-container">
+      <div class="ex-header">
+        <h2>Exercise 1</h2>
+      </div>
+      <div class="ex-desc">
+        <img style="width: 100%;" src="img/url_layout.png" alt="">
+        <p>
+          Använd URL klassen för att bygga ett http-anrop till OpenWeather webbapi:n.
+        </p>
+        <ul>
+          <li>Börja med <code>new URL('https://localhost')</code></li>
+          <li>Läs på om API:n och hur du ska bygga url:en</li>
+          <li>Använd properties för att ställa in <code>hosname</code> och <code>pathname</code> </li>
+          <li>Fyll på nödvändgia search parametrar via <code>searchParams</code></li>
+        </ul>
+        <p>
+          Lek runt med URL objektet i Inspector konsollen först innan du kodar, titta hur objektet ändras när du ställer in dess properties.
+        </p>
+        <p>
+          OpenWeather är en kommersiell webbapi för att få tag på historisk och framtida väder & temperatur info i t.ex. en stad.
+        </p>
+        <div class="ex-desc-links">
+          <h3>Hjälplänkar</h3>
+          <a href="https://javascript.info/url">URL</a>
+          <a href="https://openweathermap.org/current#name">OpenWeather</a>
+        </div>
+      </div>
+      <div class="ex-main">
+        <div id="ex-1" class="fx fx-row fx-center fx-space">
+          <pre id="ex-1-out">Skriv url:n här</pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="ex-container">
+      <div class="ex-header">
+        <h2>Exercise 2</h2>
+      </div>
+      <div class="ex-desc">
+        Använd <code>fetch()</code> för att anropa URL:en från föregående uppgift. Skriv ut svaret i &lt;pre&gt;
+        </p>
+        <div class="ex-desc-links">
+          <h3>Hjälplänkar</h3>
+          <a href="https://javascript.info/fetch">fetch()</a>
+        </div>
+      </div>
+      <div class="ex-main">
+        <div id="ex-2" class="fx fx-row fx-center">
+          <button id="ex-2-btn">fetch</button>
+          <pre id="ex-2-out">Skriv ut resultatet här</pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="ex-container">
+      <div class="ex-header">
+        <h2>Exercise 3</h2>
+      </div>
+      <div class="ex-desc">
+        <img style="width: 60%; margin: 40px 0px 0px 0px;" src="img/pic_ajax (1).gif" alt="">
+        <p>
+          Skapa ett XMLHttpRequest objekt för att skicka en begäran till url:n i Fråga 1
+        </p>
+        <p>
+          Här är de viktigaste stegen:
+        </p>
+        <ol>
+          <li>Skapa ett objekt med <code>new</code></li>
+          <li>
+            kalla på <code>open()</code> för att ställa in destination
+          </li>
+          <li>
+            sätt <code>responseType</code> till vilken typ av svar du vill ha
+          </li>
+          <li>
+            bind <code>onload</code> eventet för att göra något med resultatet. (p.s. kolla status kod 200)
+          </li>
+          <li>
+            bind <code>onerror</code> eventet för att debugga om något går snett
+          </li>
+          <li>
+            kalla på <code>send()</code> för att påbörja kommunikationen
+          </li>
+        </ol>
+        <div class="ex-desc-links">
+          <h3>Hjälplänkar</h3>
+          <a href="https://javascript.info/xmlhttprequest">XMLHttpRequest</a>
+        </div>
+      </div>
+      <div class="ex-main">
+        <div id="ex-3" class="fx fx-row fx-center fx-space">
+          <button id="ex-3-btn">AJAX</button>
+          <pre id="ex-3-out">Skriv ut resultatet här</pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="ex-container">
+      <div class="ex-header">
+        <h2>Exercise 4</h2>
+      </div>
+      <div class="ex-desc">
+        <p>
+          Titta på svaret i Exercise 2 där du använde fetch. Studera informationen i svaret, framförallt <code>weather</code> och <code>main</code>.
+        </p>
+        <p>Använd väderinfon för att skapa en informativ visualisering av vädret just nu.</p>
+        <div class="ex-desc-links">
+          <h3>Hjälplänkar</h3>
+          <a href="https://openweathermap.org/weather-conditions">Väderikon info</a>
+        </div>
+      </div>
+      <div class="ex-main">
+        <div id="ex-4" class="fx fx-row fx-center">
+          <button id="ex-4-btn">Check weather</button>
+          <div id="ex-4-out">Visualisera vädret här</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TODO 
+      * blogg övning, visa ett inlägg + kommentarer, och visa info om användare när man klickar på kommentar
+    -->
+    <section class="ex-container">
+      <div class="ex-header">
+        <h2>Exercise 5</h2>
+      </div>
+      <div class="ex-desc">
+        <p>
+          Använd JSON Placeholder api:n för att hämta ett blogginlägg och alla tillhörande kommentarer.
+        </p>
+        <p>
+          Ett fetch anrop måste ske för att hitta bloggen, ett för att hitta författaren och ett för att hitta alla kommentarer.
+        </p>
+        <p>
+          OBS, Det står inte i guiden men <code>_page</code> och <code>_limit</code> är två query parameter nycklar som finns att använda om man inte vill hämta allt på en gång.
+        </p>
+        <div class="ex-desc-links">
+          <h3>Hjälplänkar</h3>
+          <a href="http://jsonplaceholder.typicode.com/guide/">JSON Placeholder Guide</a>
+        </div>
+      </div>
+      <div class="ex-main">
+        <div id="ex-5" class="fx fx-row fx-center">
+          <div>
+            <div class="post">
+              <h3 id="ex-5-title">Title</h3>
+              <p id="ex-5-content">Content</p>
+              <p id="ex-5-author">Author</p>
+            </div>
+            <div id="ex-5-comments">
+              <div class="comment">
+                <h3>test</h3>
+                <p>test test test</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ex-container">
+      <div class="ex-header">
+        <h2>Exercise 6</h2>
+      </div>
+      <div class="ex-desc">
+        <p>
+          Använd Pokeapi för att skapa en riktig pokedex!
+        </p>
+        <p>Studera json resultatet, framförallt att varje pokemon har en 'sprite'. Att hitta beskrivningen för varje pokemon är extra klurigt och kommer att kräva ett till <code>fetch</code> anrop</p>
+        <div class="ex-desc-links">
+          <h3>Hjälplänkar</h3>
+          <a href="https://pokeapi.co/docs/v2#pokemon">Pokeapi Pokemon</a>
+        </div>
+      </div>
+      <div class="ex-main">
+        <div id="ex-6" class="fx fx-row fx-center">
+          <div class="rel">
+            <img id="ex-6-pokedex" src="img/pokedex.gif">
+            <img id="ex-6-sprite" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/258.png">
+            <p id="ex-6-name">Mudkip</p>
+            <p id="ex-6-flavortext">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur voluptatum nesciunt maxime?</p>
+            <button id="ex-6-prev">Prev</button>
+            <button id="ex-6-next">Next</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</body>
+
+<script src="../Template/util.js"></script>
+<script src="../Template/toggleFacit.js"></script>
+
+</html>

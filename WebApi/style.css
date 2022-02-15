@@ -1,0 +1,86 @@
+.ex-desc {
+  min-height: 400px;
+}
+
+pre {
+  max-width: 100%;
+  font-size: large;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.post {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: black;
+  background-color: antiquewhite;
+
+  border-radius: 4px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.post p:last-child {
+  font-size: small;
+  color: #161616;
+}
+
+.comment {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: black;
+  background-color: antiquewhite;
+  font-size: x-small;
+
+  border-radius: 8px;
+  padding: 5px;
+  margin: 5px 15px;
+}
+
+.comment p {
+  font-size: x-small;
+}
+
+.rel {
+  position: relative;
+}
+
+#ex-6-pokedex {
+  max-width: 100%;
+}
+
+#ex-6-sprite {
+  transform: scale(1.5);
+  position: absolute;
+  left: 15%;
+  top: 32%;
+}
+
+#ex-6-name {
+  position: absolute;
+  left: 15%;
+  top: 81%;
+
+  color: black;
+  text-shadow: 0px 0px 1px black;
+}
+
+#ex-6-flavortext {
+  position: absolute;
+  left: 61%;
+  top: 27%;
+  height: 18%;
+  width: 31%;
+  overflow: hidden;
+
+  color: black;
+  text-shadow: 0px 0px 1px black;
+}
+#ex-6-prev {
+  position: absolute;
+  left: 64%;
+  top: 84%;
+}
+#ex-6-next {
+  position: absolute;
+  left: 81%;
+  top: 84%;
+}

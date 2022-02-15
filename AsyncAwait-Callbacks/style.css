@@ -1,11 +1,80 @@
-.warning {
-  background-color: black;
-  border-radius: 0 0 7px 7px;
-  color: red;
-  padding: 0.25rem;
-  padding-left: 3rem;
+.edge {
+  border: 5px solid orange;
+  width: 100%;
+  height: 100%;
+  padding: 10%;
+  margin: 10%;
+
+  position: relative;
 }
 
-.warning .button {
-  margin-left: 0.5rem;
+.ball {
+  width: 50px;
+  height: 50px;
+  background: red;
+  border-radius: 25px;
+
+  position: absolute;
+
+  left: 0%;
+  top: 0%;
+
+  transform: translate(-25px, -25px);
+}
+
+.not-clickable {
+  background: rgb(255, 102, 0);
+}
+
+@keyframes lat-move {
+  0% {
+    left: 0%;
+  }
+  50% {
+    left: 100%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+
+@keyframes move-down {
+  from {
+    left: 0%;
+    top: 0%;
+  }
+  to {
+    left: 0%;
+    top: 100%;
+  }
+}
+@keyframes move-right {
+  from {
+    left: 0%;
+    top: 100%;
+  }
+  to {
+    left: 100%;
+    top: 100%;
+  }
+}
+@keyframes move-up {
+  from {
+    left: 100%;
+    top: 100%;
+  }
+  to {
+    left: 100%;
+    top: 0%;
+  }
+}
+@keyframes move-left {
+  from {
+    left: 100%;
+    top: 0%;
+  }
+  to {
+    left: 0%;
+    top: 0%;
+  }
 }
