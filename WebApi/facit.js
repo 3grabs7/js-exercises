@@ -4,9 +4,8 @@
 // jag lägger url variabeln utanför scope så att den kan nås senare i Exercise 2-4
 let url;
 {
-  url = new URL("https://localhost");
+  url = new URL("https://api.openweathermap.org");
 
-  url.hostname = "api.openweathermap.org";
   url.pathname = "/data/2.5/weather";
   url.searchParams.set("q", "Stockholm");
   url.searchParams.set("appid", "ac5d516646126253361022bafa972296");
@@ -29,12 +28,12 @@ document.getElementById("ex-2-btn").onclick = function (event) {
 
   fetch(url)
     .then((response) => {
-      // vi avbryter om svaret
+      // vi avbryter om svaret inte är 200-299
       if (!response.ok) throw `${response.status} ${response.statusText}`;
-      return response.text();
+      return response.json();
     })
-    .then((text) => {
-      const prettyJSON = JSON.stringify(JSON.parse(text), null, " ");
+    .then((object) => {
+      const prettyJSON = JSON.stringify(object, null, " ");
       out.innerText = prettyJSON;
     })
     .catch((error) => console.log(error));
@@ -48,23 +47,21 @@ document.getElementById("ex-3-btn").onclick = function (event) {
   const xhr = new XMLHttpRequest();
 
   xhr.open("GET", url);
-  xhr.responseType = "text";
+  xhr.responseType = "json";
 
   xhr.onload = function (event) {
-    console.log(
-      `Weather request status: ${event.target.status} ${event.target.statusText}`
-    );
+    // vi avbryter om svaret inte är 200-299
+    const isOk = 200 <= event.target.status && event.target.status <= 299;
+    if (!isOk) throw `Status ${event.target.status} ${event.target.statusText}`;
 
-    if (event.target.status === 200) {
-      // Begäran lyckades
-      let text = event.target.response;
-      let prettyJSON = JSON.stringify(JSON.parse(text), null, " ");
-      out.innerText = prettyJSON;
-    }
+    const object = event.target.response;
+
+    const prettyJSON = JSON.stringify(object, null, " ");
+    out.innerText = prettyJSON;
   };
 
-  xhr.onerror = function (e) {
-    console.log(url.origin + " could not be reached");
+  xhr.onerror = function (event) {
+    console.log(event);
   };
 
   xhr.send();
