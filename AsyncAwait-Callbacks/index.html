@@ -1,34 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../Template/style.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Async/Await + Callbacks</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../Template/style.css" />
-  <link rel="stylesheet" href="./style.css" />
-  <title>Async/Await + Callbacks</title>
-</head>
-
-<body>
-  <div class="nav">
-    <div>
-      <h3>JavaScript Exercises</h3>
-      <h1>Async/Await + Callbacks</h1>
+  <body>
+    <div class="nav">
+      <div>
+        <h3>JavaScript Exercises</h3>
+        <h1>Async/Await + Callbacks</h1>
+      </div>
+      <div>
+        <label for="facitToggle">Facit</label>
+        <button
+          class="button facit-toggle"
+          onclick="toggleFacit()"
+          id="facitToggle"
+        ></button>
+      </div>
     </div>
-    <div>
-      <label for="facitToggle">Facit</label>
-      <button class="button facit-toggle" onclick="toggleFacit()" id="facitToggle"></button>
+    <div class="warning" data-action>
+      Note, the
+      <a href="https://github.com/3grabs7/js-exercises-api" target="_blank"
+        >js-exercise-api</a
+      >
+      ASP.NET web server must be running and connectable
+      <button class="button">Dismiss</button>
     </div>
-  </div>
-  <div class="warning" data-action>
-    Note, the <a href="https://github.com/3grabs7/js-exercises-api" target="_blank">js-exercise API</a> must be running
-    and connectable
-    <button class="button">Dismiss</button>
-  </div>
-  <div class="main-container">
+    <div class="main-container">
+      <!-- EXERCISE 1 -->
+      <!-- id selectors follows the pattern 'ex-*[type]*' -->
+      <div class="ex-container">
+        <div class="ex-header">
+          <h2>Exercise 1</h2>
+        </div>
+        <div class="ex-desc">
+          <p>
+            Titta på swagger dokumentationen och kalla på den lokala webbapin
+            för att hämta ut en bild utan throttle.
+          </p>
+          <p>
+            Sätt source på bilden till höger till bildlänken, och använd
+            metadata för att sätta bildstorleken fast hälften så stor.
+          </p>
+          <p>Skriv ut bildens storlek under bilden.</p>
+          <div class="ex-desc-links">
+            <h3>Hjälplänkar</h3>
+            <a
+              target="_blank"
+              href="https://developer.mozilla.org/en-US/docs/Web/API/fetch"
+              >Fetch</a
+            >
+          </div>
+        </div>
+        <div class="ex-main">
+          <div>
+            <h4>Bild</h4>
+            <img src="https://httpbin.org/status/404" alt="" />
+            <p>beskrivning</p>
+          </div>
+        </div>
+      </div>
 
-    <!-- Idéer
+      <!-- hämta alla bilder i en loop, leta efter 404 -->
+
+      <!-- lägg till en ny url via HTTP POST, och visa bild samt metadata när det lyckats -->
+
+      <!-- hämta tre throttlande bilder en i taget via await:s och mät tiden det tar -->
+
+      <!-- hämta tre throttlande bilder samtidigt via await Promsie.All() och mät tiden det tar -->
+
+      <!-- <section class="ex-container">
+        <div class="ex-header">
+          <h2>Fråga 4</h2>
+        </div>
+        <div class="ex-desc">
+          <p>
+            Nu är det dags att göra arbete som tar längre tid. I detta fallet
+            handlar det om att flytta en boll runt alla hörn längs en bana när
+            man klickar på den. Använd <code>setTimeout()</code>
+            för att sprida ut dina instruktioner i tid.
+          </p>
+          <p>
+            Knepet här ligger i att varje gång vi måste göra ett hopp i tiden,
+            antingen för att vänta en bestämd tid eller på användaren eller på
+            en HTTP begäran, så använder vi oss av en callback (en funktion som
+            vi delar ut som kommer att kallas på längre fram i tiden av
+            browsern) för att styra vad som ska ske efter tidshoppet.
+            Funktionerna vi sätter på events (s.k. event handlers) är också
+            callbacks som händer lägre fram i tiden.
+          </p>
+          <p>
+            Det knepiga med denna uppgiften är att vi kommer att behöva vänta
+            fyra gånger, så vi kommer i våra callbackfunktioner att behöva skapa
+            ytterligare callbackfunktioner.
+          </p>
+        </div>
+        <div class="ex-desc-links">
+          <h3>Hjälplänkar</h3>
+          <a href="https://www.w3schools.com/jsref/met_win_settimeout.asp"
+            ><code>setTimeout()</code></a
+          >
+        </div>
+        <div class="ex-main">
+          <div id="ex-4" class="fx fx-row fx-center">
+            <div class="edge">
+              <div class="ball"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ex-container">
+        <div class="ex-header">
+          <h2>Fråga 5</h2>
+        </div>
+        <div class="ex-desc">
+          <p>
+            Ännu en gång så ska vi vänta på bollen, men jag har gett er en
+            funktion <code>defer()</code> som går att await:a eller "vänta på".
+            Använd <code>await</code> tillsammans med denna funktionen för att
+            slippa nästlade callbacks och återgå till ett kodflow utan
+            indentering.
+          </p>
+        </div>
+        <div class="ex-main">
+          <div id="ex-5" class="fx fx-row fx-center">
+            <div class="edge">
+              <div class="ball"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ex-container">
+        <div class="ex-header">
+          <h2>Fråga 6</h2>
+        </div>
+        <div class="ex-desc">
+          <p>
+            Denna fråga handlar om att vänta på en massa async funktioner
+            samtidigt. Istället för att köra-vänta-köra-vänta i serie så ska du
+            köra-alla-vänta-på-alla tills det att alla är klara.
+          </p>
+          <p>
+            Knepet här ligger i att först samla alla sina promises som man vill
+            vänta på i en array istället för att awaita dem direkt. Sen är det
+            bara att loopa igenom och vänta på dem en och en med
+            <code>await</code>.
+          </p>
+        </div>
+        <div class="ex-main">
+          <div id="ex-6" class="fx fx-row fx-center">
+            <div class="edge">
+              <div class="ball" style="top: 0%"></div>
+              <div class="ball" style="top: 33%"></div>
+              <div class="ball" style="top: 66%"></div>
+              <div class="ball" style="top: 100%"></div>
+            </div>
+          </div>
+        </div>
+      </section> -->
+
+      <!-- Fler idéer
       Björn:
         sökapi där man söker i en ordlista. Skicka in text och få tillbaka en lista på allt som matchar
       Robin:
@@ -36,117 +175,9 @@
         frys input
         felaktigt tecken växer -> täcker skärmen -> exploderar
         text visas -> felaktigt tecken
-    -->
+    --></div>
+  </body>
 
-    <!-- EXERCISE 1 -->
-    <!-- id selectors follows the pattern 'ex-*[type]*' -->
-    <div class="ex-container">
-      <div class="ex-header">
-        <h2>Exercise 1</h2>
-      </div>
-      <div class="ex-desc">
-        <p>
-          Kalla på apin, utan throttle, och sätt sourcen på bilden till höger
-          till url i responsen från apin.
-        </p>
-        <div class="ex-desc-links">
-          <h3>Hjälplänkar</h3>
-          <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/fetch">Fetch</a>
-        </div>
-      </div>
-      <div class="ex-main">
-        <div>
-          <h4>Bild</h4>
-          <img src="https://httpbin.org/status/404" alt="" />
-        </div>
-      </div>
-    </div>
-
-    <section class="ex-container">
-      <div class="ex-header">
-        <h2>Fråga 4</h2>
-      </div>
-      <div class="ex-desc">
-        <p>Nu är det dags att göra arbete som tar längre tid.
-          I detta fallet handlar det om att flytta en boll
-          runt alla hörn längs en bana när man klickar på den.
-          Använd <code>setTimeout()</code>
-          för att sprida ut dina instruktioner i tid.
-        </p>
-        <p>Knepet här ligger i att varje gång vi måste
-          göra ett hopp i tiden, antingen för att vänta
-          en bestämd tid eller på användaren eller på
-          en HTTP begäran, så använder vi oss av en callback
-          (en funktion som vi delar ut som kommer att kallas på längre fram i tiden av browsern)
-          för att styra vad som ska ske efter tidshoppet. Funktionerna vi sätter på events
-          (s.k. event handlers) är också callbacks som händer lägre fram i tiden.
-        </p>
-        <p>Det knepiga med denna
-          uppgiften är att vi kommer att behöva vänta fyra gånger, så vi kommer i våra
-          callbackfunktioner att behöva skapa ytterligare callbackfunktioner.
-        </p>
-      </div>
-      <div class="ex-desc-links">
-        <h3>Hjälplänkar</h3>
-        <a href="https://www.w3schools.com/jsref/met_win_settimeout.asp"><code>setTimeout()</code></a>
-      </div>
-      <div class="ex-main">
-        <div id="ex-4" class="fx fx-row fx-center">
-          <div class="edge">
-            <div class="ball"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="ex-container">
-      <div class="ex-header">
-        <h2>Fråga 5</h2>
-      </div>
-      <div class="ex-desc">
-        <p>Ännu en gång så ska vi vänta på bollen, men jag har gett er en
-          funktion <code>defer()</code> som går att await:a eller "vänta på". Använd <code>await</code> tillsammans
-          med denna funktionen för att slippa nästlade callbacks och återgå till ett kodflow utan indentering.
-        </p>
-      </div>
-      <div class="ex-main">
-        <div id="ex-5" class="fx fx-row fx-center">
-          <div class="edge">
-            <div class="ball"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="ex-container">
-      <div class="ex-header">
-        <h2>Fråga 6</h2>
-      </div>
-      <div class="ex-desc">
-        <p>
-          Denna fråga handlar om att vänta på en massa async funktioner samtidigt.
-          Istället för att köra-vänta-köra-vänta i serie så ska du köra-alla-vänta-på-alla tills det att alla är klara.
-        </p>
-        <p>Knepet här ligger i att först samla alla sina promises som man vill vänta på
-          i en array istället för att awaita dem direkt. Sen är det bara att loopa igenom
-          och vänta på dem en och en med <code>await</code>.
-        </p>
-      </div>
-      <div class="ex-main">
-        <div id="ex-6" class="fx fx-row fx-center">
-          <div class="edge">
-            <div class="ball" style="top: 0%;"></div>
-            <div class="ball" style="top: 33%;"></div>
-            <div class="ball" style="top: 66%;"></div>
-            <div class="ball" style="top: 100%;"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-</body>
-
-<script src="../Template/util.js"></script>
-<script src="../Template/toggleFacit.js"></script>
-
+  <script src="../Template/util.js"></script>
+  <script src="../Template/toggleFacit.js"></script>
 </html>
