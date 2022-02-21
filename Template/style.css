@@ -134,14 +134,14 @@ code {
   background-color: rgb(172, 36, 36);
 }
 .facit-toggle.on::after {
-  content: "Toggle Off";
+  content: 'Toggle Off';
 }
 
 .facit-toggle:not(.on) {
   background-color: rgb(34, 104, 34);
 }
 .facit-toggle:not(.on)::after {
-  content: "Toggle On";
+  content: 'Toggle On';
 }
 
 .button-group {
@@ -160,13 +160,13 @@ code {
   color: white;
   border-radius: 7px;
   border: none;
-  box-shadow: 0 0 3px 1px rgb(24, 24, 24);
   transition: all 500ms;
 }
 
 .button:hover {
   cursor: pointer;
-  box-shadow: 0 0 16px -6px rgb(168, 168, 168);
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 4px 5px 0 black;
   transition: all 500ms;
 }
 
@@ -180,6 +180,18 @@ label {
 
 .hidden {
   display: none;
+}
+
+a,
+a:visited {
+  color: purple;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+a:hover {
+  color: orange;
+  transition: 0.4s;
 }
 
 .warning {
